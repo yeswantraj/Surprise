@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Deekshita ❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        text-align: center;
+        overflow-x: hidden;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 420px;
+        background: rgba(255,255,255,0.15);
+        padding: 20px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        z-index: 2;
+    }
+
+    h1 { font-size: 1.4em; }
+
+    #message {
+        font-size: 1em;
+        line-height: 1.6;
+        margin-top: 15px;
+        white-space: pre-line;
+    }
+
+    .buttons {
+        margin-top: 20px;
+        position: relative;
+        height: 100px;
+    }
+
+    button {
+        padding: 10px 16px;
+        border: none;
+        border-radius: 20px;
+        font-size: 0.9em;
+        cursor: pointer;
+        position: absolute;
+    }
+
+    #yes { background: #28a745; left: 20%; }
+    #no { background: #dc3545; left: 55%; }
+
+    /* 💌 Popup */
+    .popup {
+        position: fixed;
+        top:0; left:0;
+        width:100%; height:100%;
+        background: rgba(0,0,0,0.9);
+        display:none;
+        justify-content:center;
+        align-items:center;
+        flex-direction: column;
+        padding:20px;
+        z-index:3;
+    }
+
+    .popup-content {
+        background:#fff;
+        color:#333;
+        padding:20px;
+        border-radius:20px;
+        max-width:320px;
+        animation: fadeIn 0.5s ease;
+    }
+
+    .popup img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin-top: 15px;
+        object-fit: cover;
+    }
+
+    @keyframes fadeIn {
+        from {opacity:0; transform:scale(0.8);}
+        to {opacity:1; transform:scale(1);}
+    }
+
+    /* 💓 Floating Hearts */
+    .heart {
+        position: fixed;
+        bottom: -10px;
+        font-size: 20px;
+        animation: floatUp 5s linear infinite;
+        color: pink;
+        z-index:1;
+    }
+
+    @keyframes floatUp {
+        0% { transform: translateY(0); opacity:1;}
+        100% { transform: translateY(-100vh); opacity:0;}
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Meri pyaari cute little Pyaaruuu… ❤️</h1>
+    <div id="message"></div>
+
+    <h3>Do you miss me too amma? 😘</h3>
+
+    <div class="buttons">
+        <button id="yes" onclick="love()">Yes ❤️</button>
+        <button id="no" ontouchstart="runAway()" onmouseover="runAway()">No 😜</button>
+    </div>
+</div>
+
+<!-- 💌 Popup -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <h2>💖 I knew it 💖</h2>
+        <p>
+            Tera Soft toy tujhe miss kar raha ha pyaaru 🥺💔<br><br>
+            Jaldi milenge… aur fir mai tujhe bohot pareshan karunga😄<br><br>
+            I love youuuu sooo muchhh Bangram 💖😭
+        </p>
+        <!-- 📸 ADD YOUR IMAGE HERE -->
+        <img src="C:\Users\kiran\Downloads\WhatsApp Image 2026-04-01 at 1.08.05 AM.jpeg" alt="us">
+    </div>
+</div>
+
+<script>
+const text = `Ye mere taraf se ek chotu sa cheez ha tere liye,  
+hope so tujhe acha lagega yaar.
+
+I know ki tu bhi mujhe bohot miss karti ha and 
+mai bhi tujheee bohott jyaada miss karta hu yaaar 
+itnaa ki mai words mai nai bata saktaa teri   
+presence, teri voice, teri smile, tera pareshan karna  
+sabh kuch mai miss karta hu yaar.
+
+But don't worry hum jald hi milenge aur ek dusre ko ese hi pareshan karenge.....
+
+🥺💔
+
+Tumhara pyaara  
+Soft Toy (Chinnu)`;
+
+let i = 0;
+
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("message").innerHTML += text.charAt(i);
+        let speed = (text.charAt(i) === '\n') ? 250 : 35;
+        i++;
+        setTimeout(typeWriter, speed);
+    }
+}
+window.onload = typeWriter;
+
+function love() {
+    document.getElementById("popup").style.display = "flex";
+}
+
+function runAway() {
+    const btn = document.getElementById("no");
+    btn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+    btn.style.top = Math.random() * (window.innerHeight - 100) + "px";
+}
+
+/* 💓 Hearts */
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random()*20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 5000);
+}, 500);
+</script>
+
+</body>
+</html>
